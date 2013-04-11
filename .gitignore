@@ -1,0 +1,14 @@
+# For Intellij IDEA
+
+*.iml
+*.ipr
+*.iws
+.idea/
+out
+
+# For Eclipse
+
+.project
+.classpath
+.settings/
+
