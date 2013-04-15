@@ -49,7 +49,7 @@ grails.json.legacy.builder = false
 // enabled native2ascii conversion of i18n properties files
 grails.enable.native2ascii = true
 // packages to include in Spring bean scanning
-grails.spring.bean.packages = []
+grails.spring.bean.packages = ["sayaka"]
 // whether to disable processing of multi part requests
 grails.web.disable.multipart=false
 
@@ -89,3 +89,8 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'sayaka.User'
+grails.plugins.springsecurity.authority.className = 'sayaka.Role'
+grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'

@@ -1,5 +1,6 @@
 modules = {
-    application {
-        resource url:'js/application.js'
+    sayaka {
+        dependsOn "angular"
+        resource url: 'cs/sayaka.coffee'
     }
 }

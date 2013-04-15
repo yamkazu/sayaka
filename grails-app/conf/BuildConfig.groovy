@@ -46,7 +46,9 @@ grails.project.dependency.resolution = {
 
     plugins {
         compile ":cache:1.0.1",
-                ":spring-security-core:1.2.7.3"
+                ":spring-security-core:1.2.7.3",
+                ":fixtures:1.2",
+                ":build-test-data:2.0.4"
 
         runtime ":resources:1.1.6",
                 ":jquery:1.8.3",
