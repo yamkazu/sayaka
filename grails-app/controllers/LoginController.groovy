@@ -12,38 +12,14 @@ import javax.servlet.http.HttpServletResponse
 class LoginController {
 
     /**
-     * Dependency injection for the authenticationTrustResolver.
-     */
-    def authenticationTrustResolver
-
-    /**
      * Dependency injection for the springSecurityService.
      */
     def springSecurityService
 
     /**
-     * The redirect action for Ajax requests.
-     */
-    def authAjax = {
-        response.setHeader 'Location', SpringSecurityUtils.securityConfig.auth.ajaxLoginFormUrl
-        response.sendError HttpServletResponse.SC_UNAUTHORIZED
-    }
-
-    /**
-     * Login page for users with a remember-me cookie but accessing a IS_AUTHENTICATED_FULLY page.
-     */
-    def full = {
-        // TODO When does using this method?
-        def config = SpringSecurityUtils.securityConfig
-        render view: 'auth', params: params,
-            model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication),
-                postUrl: "${request.contextPath}${config.apf.filterProcessesUrl}"]
-    }
-
-    /**
      * Callback after a failed login. Redirects to the auth page with a warning message.
      */
-    def authfail = {
+    def fail() {
         String msg = ''
         def exception = session[WebAttributes.AUTHENTICATION_EXCEPTION]
         if (exception) {
@@ -67,14 +43,19 @@ class LoginController {
     /**
      * The Ajax success redirect url.
      */
-    def ajaxSuccess = {
-        render([success: true, username: springSecurityService.authentication.name] as JSON)
+    def success() {
+        render principal as JSON
     }
 
-    /**
-     * The Ajax denied redirect url.
-     */
-    def ajaxDenied = {
+    def denied() {
         render([error: 'access denied'] as JSON)
+    }
+
+    def status() {
+        if (springSecurityService.isLoggedIn()) {
+            success()
+        } else {
+            render text: "NotLoggedIn", status: HttpServletResponse.SC_UNAUTHORIZED
+        }
     }
 }

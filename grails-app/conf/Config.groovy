@@ -91,6 +91,14 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.password.algorithm = 'SHA-512'
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'sayaka.User'
 grails.plugins.springsecurity.authority.className = 'sayaka.Role'
 grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'
+
+grails.plugins.springsecurity.apf.filterProcessesUrl = "/login"
+grails.plugins.springsecurity.apf.usernameParameter = "username"
+grails.plugins.springsecurity.apf.passwordParameter = "password"
+grails.plugins.springsecurity.successHandler.ajaxSuccessUrl = "/login/success"
+grails.plugins.springsecurity.failureHandler.ajaxAuthFailUrl = "/login/fail"
+grails.plugins.springsecurity.adh.ajaxErrorPage = "/login/denied"

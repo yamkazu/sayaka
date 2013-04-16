@@ -16,6 +16,12 @@ class User {
     boolean accountLocked
     boolean passwordExpired
 
+    static hasMany = [roles: Role]
+
+    def getAuthorities() {
+        roles*.authority
+    }
+
     static constraints = {
         username blank: false, unique: true
         password blank: false

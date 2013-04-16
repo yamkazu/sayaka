@@ -5,7 +5,7 @@
     <r:layoutResources/>
 </head>
 
-<body ng-app="sayaka">
+<body ng-app="sayaka" data-base-url="${createLink(uri: '/')}">
 
 <g:render template="/login"/>
 
