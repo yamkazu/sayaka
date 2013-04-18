@@ -7,11 +7,7 @@
 
 <body ng-app="sayaka" data-base-url="${createLink(uri: '/')}">
 
-<g:render template="/login"/>
-
-<a href="#/signup">singup</a>
-<div ng-view></div>
-
+xxxx
 </body>
 <r:layoutResources/>
 </html>
