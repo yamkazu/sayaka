@@ -46,6 +46,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         compile ":cache:1.0.1",
+                ":webxml:1.4.1", // http://grails.1312388.n4.nabble.com/No-thread-bound-request-found-error-td4631072.html
                 ":spring-security-core:1.2.7.3",
                 ":fixtures:1.2",
                 ":build-test-data:2.0.4"
