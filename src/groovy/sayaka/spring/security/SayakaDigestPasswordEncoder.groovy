@@ -4,7 +4,7 @@ import org.springframework.security.authentication.encoding.MessageDigestPasswor
 
 class SayakaDigestPasswordEncoder extends MessageDigestPasswordEncoder {
     SayakaDigestPasswordEncoder() {
-        super("SHA-512")
-        iterations = 100
+        super("SHA-256")
+        iterations = 1000
     }
 }

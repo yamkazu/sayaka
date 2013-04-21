@@ -7,9 +7,12 @@ class UrlMappings {
             }
         }
 
-        "/signup" view: "/signup"
-        "/"       view: "/index"
+        "/signup"(controller: "signup") {
+            action = [GET: "form", POST: "signup"]
+        }
 
-        "500"     view: "/error"
+        "/" view: "/index"
+
+        "500" view: "/error"
     }
 }
