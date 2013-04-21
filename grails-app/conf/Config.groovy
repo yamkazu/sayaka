@@ -91,7 +91,7 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.password.algorithm = 'SHA-512'
+grails.plugins.springsecurity.password.algorithm = 'SHA-256'
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'sayaka.User'
 grails.plugins.springsecurity.authority.className = 'sayaka.Role'
 grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'

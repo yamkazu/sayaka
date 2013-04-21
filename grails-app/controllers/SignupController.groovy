@@ -7,7 +7,10 @@ class SignupController {
     }
 
     def signup(SignupCommand command) {
-        command.singup()
+
+        println params
+        println request.JSON
+        println command
 
         render text: "ok!"
     }

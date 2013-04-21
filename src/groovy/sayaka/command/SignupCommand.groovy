@@ -1,10 +1,12 @@
 package sayaka.command
 
 import grails.validation.Validateable
+import groovy.transform.ToString
 import sayaka.User
 
 
 @Validateable
+@ToString
 class SignupCommand {
 
     String username
@@ -20,5 +22,9 @@ class SignupCommand {
         user.password = password
         
         user.save(flush: true, failOnError: true)
+    }
+
+    static constraints = {
+
     }
 }
